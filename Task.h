@@ -3,38 +3,38 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include "Date.h"
+#include "Time.h"
 
 using namespace std;
 
 class Task {
+    friend ostream& operator<<(ostream&, const Task&);
     public:
         Task();
+        Task(const string& name, const string& desc, const Date& date, Time& time);
         ~Task();
+        // may need a copy constructor
 
-        const string& getName();
-        const string& getDescription();
-        getStartDate();
-        getEndDate();
+        const string& getName() const;
+        const string& getDescription() const;
+        const string& getDueDate() const;
+        const string& getDeadline() const;
 
-        setName();
-        setDescription();
-        setStartDate();
-        setEndDate();
+        void setName(const string&);
+        void setDescription(const string&);
+        void setDueDate(const Date&);
+        void setDeadline(const Time&);
 
-        //Task getTask() const;
-        //bool addTask();
-        //bool killTask();
-        //bool resolveTask();
+        void print(ostream&) const;
         // saveTask to exernal file
         // loadTask from external file
 
-        // then write menu loop and 
-
     private:
-        string name;
-        string description;
-        Date startDate
-        Date endDate;
+        string taskName;
+        string taskDescription;
+        Date dueDate;
+        Time deadline;
 };
 #endif
