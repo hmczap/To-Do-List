@@ -1,0 +1,25 @@
+To Do List is a command-line application that can be used to write a to-do list and 
+display it in the terminal. Tasks are given a name, brief description (limited to 250
+characters), and level of priority. By default, if priority is not assigned to a task, 
+the default priority is low, such that new tasks will be added to the bottom of the list.
+
+To Do List will also track the tasks you have completed today.
+
+[Future] you are able to restore tasks that were previously completed to the pending list
+         of tasks, if needed.
+
+Use the main menu to add tasks to the list, resolve them, remove them from the list.
+
+[Future] The settings menu can be used to customize the style and colour of the list.
+
+         Priority Mode          The top 3 tasks with the highest priority are printed to
+                                the console. Other tasks can be cycled using the D (down)
+                                and U (up) key.
+
+         Full Mode              All tasks on the to do list are displayed in the console
+                                in no particular order, including their full description.
+        
+         Condensed Mode         All tasks on the to do list are displayed by name only
+                                (description is omitted). Task descriptions will be stored
+                                but not displayed in this mode - to view task descriptions
+                                the user must switch to full mode.

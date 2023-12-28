@@ -1,19 +1,19 @@
-objects = main.o Task.o View.o
+objects = main.o View.o Task.o TDList.o
 
-all: todolist
-test: test
-
-todolist: $(objects)
-	g++ -o todolist $(objects)
-
-test: main.o View.o
-	g++ -o test main.o View.o
+test: ${objects}
+	g++ -o test ${objects}
 
 main.o: main.cc
 	g++ -c main.cc 
 
 View.o: View.cc View.h
-	g++ -c View.cc 
+	g++ -c View.cc
+
+Task.o: Task.cc Task.h
+	g++ -c Task.cc
+
+TDList.o: TDList.cc TDList.h
+	g++ -c TDList.cc
 
 clean: 
-	rm -f todolist test *.o
+	rm -f test *.o
