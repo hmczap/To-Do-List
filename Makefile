@@ -1,4 +1,4 @@
-objects = main.o View.o Task.o TDList.o
+objects = main.o View.o Task.o TDList.o Control.o
 
 test: ${objects}
 	g++ -o test ${objects}
@@ -14,6 +14,9 @@ Task.o: Task.cc Task.h
 
 TDList.o: TDList.cc TDList.h
 	g++ -c TDList.cc
+
+Control.o: Control.cc Control.h
+	g++ -c Control.cc
 
 clean: 
 	rm -f test *.o

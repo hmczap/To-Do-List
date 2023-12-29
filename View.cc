@@ -1,6 +1,15 @@
 #include "View.h"
 
-void View::addUserTask(TDList& list){
+View::View(){
+    //unneeded for now, since the TDLIST should exist...
+    // maybe store the TDList on the heap???
+}
+
+View::~View(){
+    //should this delete the contents of the lists?
+}
+
+void View::addUserTask(){
     char name[MAX_BUF];
     char description[MAX_BUF + 170];
     char p = '\0';
@@ -45,9 +54,22 @@ void View::printMenu() const{
     cout<<"  2: Add a task"<<endl;
     cout<<"  3: Remove a task"<<endl;
     cout<<"  4: About this application"<<endl;
+    cout<<"  5: DEBUG text colour options"<<endl;
     cout<<endl;
     cout<<"Enter your selection: ";
 }
+
+
+//void View::printToDoList() const{}         ///////
+
+void View::printPendingTasks() const{
+    this->list.printPendingTasks();
+}
+
+void View::printResolvedTasks() const{}    ///////
+
+void View::printSettings() const{}         ///////
+
 
 void View::printAbout() const{
     ifstream aboutFile;
@@ -76,3 +98,19 @@ void View::printAbout() const{
     cout<<"Press [ENTER] to return to menu"<<endl;
     cin.get();
 }
+
+
+void View::printColours() const{
+    //int col;
+
+    for (int i = 1; i < 256; ++i){
+        string v = "\033[38;5;";
+        cout<<v+to_string(i)+"m"<<i<<"\033[0m"<<" ";
+        if (i%20 == 0){
+            cout<<endl;
+        }
+    }
+    cout<<"\n"<<endl;
+    //cout<<"Select the desired text colour: ";
+}
+

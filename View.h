@@ -12,12 +12,20 @@ using namespace std;
 
 class View{
     public:
-        // View has no data members/attributes
+        View();
+        ~View();
 
-        void addUserTask(TDList&);
+        void addUserTask();
 
         void printMenu() const;
+        void printPendingTasks() const;         ///////
+        void printResolvedTasks() const;    ///////
+
+        void printSettings() const;         ///////
         void printAbout() const;
+        void printColours() const;
         
+    private:
+        TDList list;
 };
 #endif
