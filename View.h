@@ -16,6 +16,8 @@ class View{
         ~View();
 
         void addUserTask();
+        void resolveTask();
+        void killTask();
 
         void printMenu() const;
         void printPendingTasks() const;         ///////

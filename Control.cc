@@ -43,7 +43,7 @@ void testTask(){
 
 void Control::launch(){
 
-    loadUserSettings();
+    //loadUserSettings();
     //loadViews();
     
     int l = 1;
@@ -76,21 +76,24 @@ void Control::launch(){
                 l = 0; 
                 break;
             case 1:
-                // view to do list
                 view.printPendingTasks();   // should act on the list
                 break;
             case 2:
-                // add a task
+                view.printResolvedTasks();
+                break;
+            case 3:
                 view.addUserTask();
                 break;
-            case 3: 
-                //  remove a task
-                cout<<"debug: removing from the list"<<endl;
+            case 4: 
+                view.resolveTask();
                 break; 
-            case 4:
+            case 5:
+                view.killTask();
+                break;
+            case 6:
                 view.printAbout();
                 break;   
-            case 5:
+            case 7:
                 cout<<"[DEV] The following are possible colour codes that the user may select:"<<endl;    
                 view.printColours();
             default:

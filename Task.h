@@ -16,7 +16,7 @@ using namespace std;
 
 class Task {
     friend ostream& operator<<(ostream&, const Task&);
-    friend bool compare(const Task&, const Task&);
+    //friend bool compare(unique_ptr<Task>&, unique_ptr<Task>&);
     public:
         //Task(const string& name, const string& desc, const Date& date, Time& time);
         Task(const string& = "Untitled", const string& = "New task", int = 0);

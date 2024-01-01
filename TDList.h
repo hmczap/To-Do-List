@@ -27,9 +27,12 @@ using namespace std;
 // such a small scale
 
 class TDList{
-    friend bool compare(const Task&, const Task&);
+    //friend bool compare(const Task&, const Task&);
+    friend bool compare(unique_ptr<Task>&, unique_ptr<Task>&);
     public:
         TDList();
+        //TDList(const TDList&) = delete;
+        //TDList& operator=(const TDList&) = delete;
         ~TDList();
 
         // add task to the list of pending tasks
@@ -38,14 +41,14 @@ class TDList{
         void add(const string& name, const string& desc, int p);
 
         // remove task from pending list, add to list of resolved tasks
-        void resolveTask(Task&);
+        //void resolveTask(Task&);
         void resolveTask(const string& name);
 
         // remove task from pending list, but do not resolve it
-        void killTask(Task&);
-        //void killTask(const string& name);
+        //void killTask(Task&);
+        void killTask(const string& name);
 
-        bool findTask(const string&, vector<Task>::iterator&);
+        bool findTask(const string&, vector<unique_ptr<Task>>::iterator&);
 
         void printPendingTasks() const;
         void printResolvedTasks() const;
@@ -57,12 +60,12 @@ class TDList{
 		bool isFull() const;
 
     private:
-        vector<Task> pendingTasks;
-        vector<Task> resolvedTasks;
+        vector<unique_ptr<Task>> pendingTasks;
+        vector<unique_ptr<Task>> resolvedTasks;
         int numTasks;
 
         // remove task from pending list and return a ptr to it
         //Task* remove(const Task&);
-        Task* remove(const string& name);
+        unique_ptr<Task> remove(vector<unique_ptr<Task>>::iterator&);
 };
 #endif
