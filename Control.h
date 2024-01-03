@@ -18,12 +18,9 @@ class Control{
 
     private:
         View view;
-        string taskColour;
-        int taskMode;
 
+        // to be implemented!
         void loadUserSettings();
-        //void loadViews();
         void changeUserSettings();
-        //void clean();
 };
 #endif

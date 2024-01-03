@@ -9,14 +9,11 @@
 #include <iostream>
 #include <ostream>
 #include <iomanip>
-//#include "Date.h"
-//#include "Time.h"
 
 using namespace std;
 
 class Task {
     friend ostream& operator<<(ostream&, const Task&);
-    //friend bool compare(unique_ptr<Task>&, unique_ptr<Task>&);
     public:
         //Task(const string& name, const string& desc, const Date& date, Time& time);
         Task(const string& = "Untitled", const string& = "New task", int = 0);
@@ -26,20 +23,19 @@ class Task {
         const string& getName() const;
         const string& getDescription() const;
         int getPriority() const;
-        //const string& getDueDate() const;
-        //const string& getDeadline() const;
 
         /* Setters */
         void setName(const string&);
         void setDescription(const string&);
         void setPriority(int);
         void reducePriority();  // user can use this to fine-tune the order of tasks
-        //void setDueDate(const Date&);
-        //void setDeadline(const Time&);
 
-        void print(ostream&) const;
-        // saveTask to exernal file
-        // loadTask from external file
+        //void print(ostream&) const;
+        void printFull(ostream&) const;
+        void printCondensed(ostream&) const;
+
+        // void saveTask(); to exernal file
+        // void loadTask(); from external file
 
         bool operator==(const Task&) const;
 
@@ -47,7 +43,5 @@ class Task {
         string taskName;
         string taskDescription;
         int priority;
-        //Date dueDate;
-        //Time deadline;
 };
 #endif

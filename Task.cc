@@ -1,18 +1,13 @@
 #include "Task.h"
 
 ostream& operator<<(ostream& ost, const Task& t){
-    t.print(ost);
+    t.printFull(ost);
     return ost;
 }
-
-//bool compare(const Task& t1, const Task& t2){return t1.priority <= t2.priority;}
 
 /*Task::Task(){
     taskName = "New task";
     taskDescription = ""
-
-    //dueDate = Date();
-    //deadline = Time();
 }*/
 
 Task::Task(const string& name, const string& desc, int p):
@@ -42,18 +37,9 @@ const string& Task::getDescription() const{
     return taskDescription;
 }
 
-/*const Date& Task::getDueDate() const{
-    return dueDate;
-}*/
-
-/*const Time& Task::getDeadline() const{
-    return deadline;
-}*/
-
 int Task::getPriority() const{
     return priority;
 }
-
 
 void Task::setName(const string& name){
     taskName = name;
@@ -71,21 +57,12 @@ void Task::reducePriority(){
     setPriority(priority - 1);
 }
 
+void Task::printFull(ostream& ost) const{
+    cout<<"> "<<setw(48)<<left<<taskName<<endl;
+    cout<<"    "<<setw(48)<<left<<taskDescription<<endl;
+    //cout<<"|    [DEBUG] Priority: "<<priority<<endl;
+}
 
-/*void Task::setDueDate(const Date& d){
-    dueDate = Date(d);
-}*/
-
-/*void Task::setDeadline(const Time& t){
-    deadline = Time(t);
-}*/
-
-void Task::print(ostream& ost) const{
-    cout<<" -----------------------------------------"<<endl;
-    cout<<"|    "<<taskName<<endl;
-    cout<<"|    "<<taskDescription<<endl;
-    //cout<<"|    Due: "<<dueDate<<" at "<<deadline<<endl;;
-    cout<<"|    [DEBUG] Priority: "<<priority<<endl;
-    cout<<" -----------------------------------------"<<endl;
-
+void Task::printCondensed(ostream& ost) const{
+    cout<<"> "<<setw(48)<<left<<taskName<<endl;
 }

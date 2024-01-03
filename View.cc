@@ -3,6 +3,8 @@
 View::View(){
     //unneeded for now, since the TDLIST should exist...
     // maybe store the TDList on the heap???
+    taskMode = 1;
+    taskColour = "211";
 }
 
 View::~View(){
@@ -71,6 +73,7 @@ void View::killTask(){
 }
 
 void View::printMenu() const{
+    cout<<endl;
     cout<<"----- Menu -----"<<endl;
     cout<<"  0: Exit"<<endl;
     cout<<"  1: View the list of pending tasks"<<endl;
@@ -84,19 +87,21 @@ void View::printMenu() const{
     cout<<"Enter your selection: ";
 }
 
-
-//void View::printToDoList() const{}         ///////
+void View::printSettingsMenu() const{} //////////////
 
 void View::printPendingTasks() const{
+    cout<<"\033[38;5;"+taskColour+"m";
     this->list.printPendingTasks();
+    cout<<"\033[0m";
 }
 
 void View::printResolvedTasks() const{
+    cout<<"\033[38;5;"+taskColour+"m";
     this->list.printResolvedTasks();
+    cout<<"\033[0m";
 }
 
 void View::printSettings() const{}         ///////
-
 
 void View::printAbout() const{
     ifstream aboutFile;
@@ -137,6 +142,20 @@ void View::printColours() const{
         }
     }
     cout<<"\n"<<endl;
-    //cout<<"Select the desired text colour: ";
+    /*cout<<"Select the desired text colour: ";
+    cin.getline(input, 3, '\n');
+    if (atoi(input) > 0 && atoi(input) < 256){
+        cout<<input<<endl;
+        cout<<taskColour<<endl;
+        //this->taskColour = input;
+    }*/
+}
+
+void setTaskColour(){
+
+}
+
+void setTaskMode(){
+
 }
 

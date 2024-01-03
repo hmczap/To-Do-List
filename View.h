@@ -20,8 +20,9 @@ class View{
         void killTask();
 
         void printMenu() const;
-        void printPendingTasks() const;         ///////
-        void printResolvedTasks() const;    ///////
+        void printSettingsMenu() const;     /////////
+        void printPendingTasks() const;
+        void printResolvedTasks() const;
 
         void printSettings() const;         ///////
         void printAbout() const;
@@ -29,5 +30,10 @@ class View{
         
     private:
         TDList list;
+        string taskColour;
+        int taskMode;
+
+        void setTaskColour();
+        void setTaskMode();
 };
 #endif

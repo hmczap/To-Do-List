@@ -18,10 +18,6 @@ TDList::~TDList(){
     }*/
 }
 
-/*bool compare(const Task& t1, const Task& t2){
-    return t1.priority <= t2.priority;
-}*/
-
 bool compare(unique_ptr<Task>& t1, unique_ptr<Task>& t2){
     return t1->getPriority() <= t2->getPriority();
 }
@@ -42,7 +38,7 @@ void TDList::resolveTask(const string& name){
     vector<unique_ptr<Task>>::iterator it;
 
     if (!findTask(name, it)){
-        cout<<"Unable to kill task: task '"<<name<<"' could not be located"<<endl;
+        cout<<"Unable to resolve task: task '"<<name<<"' could not be located"<<endl;
         return;
     }
     unique_ptr<Task> removedTask = move(remove(it));
@@ -86,22 +82,27 @@ bool TDList::isFull() const{
 }
 
 void TDList::printPendingTasks() const{
+    string line(50, '_');
+    cout<<line<<endl;
     for (auto rit = pendingTasks.rbegin(); rit != pendingTasks.rend(); ++rit){
-        (*rit)->print(cout);
         cout<<endl;
+        (*rit)->printFull(cout);
     }
+    cout<<line<<endl;
 }
 
 void TDList::printResolvedTasks() const{
+    string line(50, '_');
+    cout<<line<<endl;
     for (auto rit = resolvedTasks.rbegin(); rit != resolvedTasks.rend(); ++rit){
-        (*rit)->print(cout);
         cout<<endl;
+        (*rit)->printFull(cout);
     }
+    cout<<line<<endl;
 }
 
 unique_ptr<Task> TDList::remove(vector<unique_ptr<Task>>::iterator& taskIt){
     unique_ptr<Task> t = move(*taskIt);
     pendingTasks.erase(taskIt);
-    // from iterator to the end, copy the tasks over.....
     return t;
 }

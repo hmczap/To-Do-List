@@ -27,7 +27,6 @@ using namespace std;
 // such a small scale
 
 class TDList{
-    //friend bool compare(const Task&, const Task&);
     friend bool compare(unique_ptr<Task>&, unique_ptr<Task>&);
     public:
         TDList();
@@ -37,7 +36,6 @@ class TDList{
 
         // add task to the list of pending tasks
         void add(Task&);
-        //void add(const string& name, const string& desc, const Date& date, Time& time);
         void add(const string& name, const string& desc, int p);
 
         // remove task from pending list, add to list of resolved tasks
@@ -65,7 +63,6 @@ class TDList{
         int numTasks;
 
         // remove task from pending list and return a ptr to it
-        //Task* remove(const Task&);
         unique_ptr<Task> remove(vector<unique_ptr<Task>>::iterator&);
 };
 #endif

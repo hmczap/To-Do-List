@@ -18,10 +18,10 @@ void testTask(){
     cout<<endl;
 
     cout<<"Testing print function"<<endl;
-    task1->print(cout);
-    task2->print(cout);
-    task3->print(cout);
-    task4->print(cout);
+    task1->printFull(cout);
+    task2->printFull(cout);
+    task3->printFull(cout);
+    task4->printFull(cout);
 
     cout<<"Changing Task 1: "<<endl;
     task1->setName("XXXXX");
@@ -30,10 +30,10 @@ void testTask(){
     cout<<endl;
 
     cout<<"Testing print function"<<endl;
-    task1->print(cout);
-    task2->print(cout);
-    task3->print(cout);
-    task4->print(cout);
+    task1->printFull(cout);
+    task2->printFull(cout);
+    task3->printFull(cout);
+    task4->printFull(cout);
 
     delete task1;
     delete task2;
@@ -43,27 +43,11 @@ void testTask(){
 
 void Control::launch(){
 
-    //loadUserSettings();
+    loadUserSettings();
     //loadViews();
     
     int l = 1;
     int userInput;
-
-    //View* view = new View();
-
-    /* Test code for a Task *////////////////
-    //testTask();
-    //TDList list;
-    /*Task* task1 = new Task("name1", "desc1", 3);
-    Task* task2 = new Task("name2", "desc2", 2);
-    Task* task3 = new Task("name3", "desc3", 1);
-    Task* task4 = nullptr;
-    Task* tasks[3] = {task3, task2, task1};
-    for (int i = 0; i < 3; ++i){
-        list.add(*tasks[i]);
-        cout<<"Number of tasks on the list: "<<list.getSize()<<endl;
-    }*/
-    ////////////////////////
 
     while (l){
         view.printMenu();
@@ -76,7 +60,7 @@ void Control::launch(){
                 l = 0; 
                 break;
             case 1:
-                view.printPendingTasks();   // should act on the list
+                view.printPendingTasks();
                 break;
             case 2:
                 view.printResolvedTasks();
@@ -100,23 +84,13 @@ void Control::launch(){
                 break;
         }
     }
-    /*delete task1;
-    delete task2;
-    delete task3;
-    if (task4 != nullptr) {delete task4;}*/
-    //delete view;// do i need to do this?
-
-    //clean();
 }
 
 void Control::loadUserSettings(){
     // read in user settings file
     // stored user color preferences
+    //view.taskColour = "211";
 }
-
-//void Control::loadViews(){}
-
-//void Control::clean(){}
 
 void changeUserSettings(){
     // open and print contents of user settings file
