@@ -1,10 +1,10 @@
 objects = main.o View.o Task.o TDList.o Control.o
 
 test: ${objects}
-	g++ -o test ${objects}
+	g++ -o test ${objects} -lncurses
 
 main.o: main.cc
-	g++ -c main.cc 
+	g++ -g -c main.cc 
 
 View.o: View.cc View.h
 	g++ -c View.cc

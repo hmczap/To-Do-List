@@ -58,11 +58,16 @@ void Task::reducePriority(){
 }
 
 void Task::printFull(ostream& ost) const{
-    cout<<"> "<<setw(48)<<left<<taskName<<endl;
-    cout<<"    "<<setw(48)<<left<<taskDescription<<endl;
-    //cout<<"|    [DEBUG] Priority: "<<priority<<endl;
+    printw("%s\n", taskName.data());
+    printw("%s\n", taskDescription.data());
+    refresh();
+    //ost<<"> "<<setw(48)<<left<<taskName<<endl;
+    //ost<<"    "<<setw(48)<<left<<taskDescription<<endl;
+    //ost<<"|    [DEBUG] Priority: "<<priority<<endl;
 }
 
 void Task::printCondensed(ostream& ost) const{
-    cout<<"> "<<setw(48)<<left<<taskName<<endl;
+    printw("%s\n", taskName.data());
+    refresh();
+    //ost<<"> "<<setw(48)<<left<<taskName<<endl;
 }

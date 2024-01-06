@@ -13,14 +13,18 @@
 using namespace std;
 
 class Control{
-    public:
+    public:        
         void launch();
 
     private:
         View view;
 
         // to be implemented!
+        void initCurses();
+        void printHomepage();
+
         void loadUserSettings();
         void changeUserSettings();
+        void loadViews();
 };
 #endif

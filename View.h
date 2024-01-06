@@ -7,6 +7,7 @@
 #include <fstream>
 #include <limits>
 #include "TDList.h"
+#include <curses.h>
 
 using namespace std;
 
@@ -15,14 +16,16 @@ class View{
         View();
         ~View();
 
-        void addUserTask();
-        void resolveTask();
-        void killTask();
+        void addUserTask(WINDOW*,WINDOW*);
+        void addUserTask(const string&, const string&, int);
+        void resolveTask(WINDOW*,WINDOW*);
+        void killTask(WINDOW*,WINDOW*);
 
         void printMenu() const;
+        void printMenu(WINDOW*) const;
         void printSettingsMenu() const;     /////////
-        void printPendingTasks() const;
-        void printResolvedTasks() const;
+        void printPendingTasks(WINDOW*) const;
+        void printResolvedTasks(WINDOW*) const;
 
         void printSettings() const;         ///////
         void printAbout() const;

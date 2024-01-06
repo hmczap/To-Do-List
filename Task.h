@@ -9,6 +9,7 @@
 #include <iostream>
 #include <ostream>
 #include <iomanip>
+#include <curses.h>
 
 using namespace std;
 
